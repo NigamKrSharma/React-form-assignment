@@ -1,10 +1,8 @@
 import React from "react";
-import { Field, ErrorMessage } from "formik";
 
-const PremiseTypeStep = ({ setFieldValue, values }) => {
-  const handlePremiseTypeSelect = (type) => {
-    setFieldValue("premiseType", type);
-  };
+
+const PremiseTypeStep = ({values, nextStep }) => {
+ 
 
   return (
     <div className="premise-type-step">
@@ -13,7 +11,7 @@ const PremiseTypeStep = ({ setFieldValue, values }) => {
         <button
           id="opt-btn"
           type="button"
-          onClick={() => handlePremiseTypeSelect("Residential")}
+          onClick={nextStep}
           className={values.premiseType === "Residential" ? "active" : ""}
         >
           Residential Society
@@ -21,22 +19,23 @@ const PremiseTypeStep = ({ setFieldValue, values }) => {
         <button
           id="opt-btn"
           type="button"
-          onClick={() => handlePremiseTypeSelect("Commercial")}
-          className={values.premiseType === "Commercial" ? "active" : ""}
+          onClick={nextStep}
+          // className={values.premiseType === "Commercial" ? "active" : ""}
         >
           Apartments
         </button>
         <button
           id="opt-btn"
           type="button"
-          onClick={() => handlePremiseTypeSelect("Industrial")}
-          className={values.premiseType === "Industrial" ? "active" : ""}
+          onClick={nextStep}
+          
+          // className={values.premiseType === "Industrial" ? "active" : ""}
         >
           Rural Homes
         </button>
       </div>
 
-      {values.premiseType && (
+      {/* {values.premiseType && (
         <div className="premise-details">
           <div className="form-group">
             <label htmlFor="premiseDetail">Premise Details</label>
@@ -81,7 +80,7 @@ const PremiseTypeStep = ({ setFieldValue, values }) => {
             <ErrorMessage name="address" component="div" className="error" />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

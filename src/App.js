@@ -106,14 +106,15 @@ const MultiStepForm = () => {
           validationSchema={validationSchema[currentStep]}
           onSubmit={onSubmit}
         >
-          {({ isValid, dirty, setFieldValue, values, errors, touched }) => (
+          {({ isValid, dirty,  values, errors, touched }) => (
             <Form>
               {currentStep === 0 && <YourInfoStep errors={errors} />}
               {currentStep === 1 && (
                 <PremiseTypeStep
-                  setFieldValue={setFieldValue}
                   values={values}
                   errors={errors}
+                  nextStep={nextStep}
+                  currentStep={currentStep}
                 />
               )}
               {currentStep === 2 && <AddressStep errors={errors} />}
